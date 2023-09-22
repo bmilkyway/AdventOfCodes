@@ -1,0 +1,97 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "AdventOfCode2015/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/AdventOfCode2015.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AdventOfCode2015.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AdventOfCode2015/1.0.0": {
+      "type": "project",
+      "path": "../AdventOfCode2015/AdventOfCode2015.csproj",
+      "msbuildProject": "../AdventOfCode2015/AdventOfCode2015.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "AdventOfCode2015 >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Bajár Milán\\.nuget\\packages\\": {},
+    "D:\\Developer\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Bajár Milán\\source\\repos\\bmilkyway\\AdventOfCodes\\AdventOfCodeTester\\AdventOfCodeTester.csproj",
+      "projectName": "AdventOfCodeTester",
+      "projectPath": "C:\\Users\\Bajár Milán\\source\\repos\\bmilkyway\\AdventOfCodes\\AdventOfCodeTester\\AdventOfCodeTester.csproj",
+      "packagesPath": "C:\\Users\\Bajár Milán\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bajár Milán\\source\\repos\\bmilkyway\\AdventOfCodes\\AdventOfCodeTester\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\Developer\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Bajár Milán\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {
+            "C:\\Users\\Bajár Milán\\source\\repos\\bmilkyway\\AdventOfCodes\\AdventOfCode2015\\AdventOfCode2015.csproj": {
+              "projectPath": "C:\\Users\\Bajár Milán\\source\\repos\\bmilkyway\\AdventOfCodes\\AdventOfCode2015\\AdventOfCode2015.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
