@@ -9,7 +9,9 @@ namespace AdventOfCode2015.Days
 {
     public class Day3
     {
-
+        public Day3() =>
+            ReadingFile();
+      
         #region variables
 
         private const string Day3Task1 = "Mikulás ajándékokat szállít egy végtelen két dimenziós házak hálózatában.\r\n\r\nAzzal kezdi, hogy egy ajándékot szállít a kiindulási helyen lévő házhoz, majd egy manó a Északi-sarkról rádióval hívja és elmondja neki, hogy hová kell következőnek mennie. A lépések mindig pontosan egy házat jelentenek északra (^), délre (v), keletre (>) vagy nyugatra (<). Minden lépés után új helyen szállít egy másik ajándékot.\r\n\r\nAzonban az északi-sarkon lévő manó kicsit túlzásba vitte az eggnogot, és útmutatásai nem teljesen pontosak, ezért Mikulás néhány házat többször is meglátogat. Hány ház kap legalább egy ajándékot?\r\n\r\nPéldául:\r\n\r\n2 házhoz szállít ajándékot: az egyik a kiindulási helyen, a másik pedig keletre.\r\n^>v< 4 házhoz szállít ajándékot egy négyzet alakban, beleértve a kiindulási / célhelyen lévő házat is kétszer.\r\n^v^v^v^v^v néhány szerencsés gyermeknek csak 2 házhoz szállít ajándékot.";
@@ -103,22 +105,16 @@ namespace AdventOfCode2015.Days
         /// Hány háznál volt Miki
         /// </summary>
         /// <returns></returns>
-        public string Task1()
-        {
-            ReadingFile();
-            return String.Format("A mikulás {0} helyre vitt ajándékot", deliverWithAlone());
-        }
+        public string Task1()=>
+             String.Format("A mikulás {0} helyre vitt ajándékot", deliverWithAlone());
 
         /// <summary>
         /// Hány háznál volt robo-Santa és Miki
         /// </summary>
         /// <returns></returns>
-        public string Task2()
-        {
-            ReadingFile();
-            return String.Format("A mikulás most {0} helyre vitte már ki az ajit", deliverWithRoboSanta());
+        public string Task2()=>
+             String.Format("A mikulás most {0} helyre vitte már ki az ajit", deliverWithRoboSanta());
 
-        }
         #endregion
     }
 }

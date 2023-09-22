@@ -67,20 +67,18 @@ namespace AdventOfCode2015.Days
         /// Melyik a legkisebb szám amit a kulcs mellé kell rakni, ha a hash első 5 karaktere 0
         /// </summary>
         /// <returns></returns>
-        public string Task1()
-        {
-            return String.Format("A legkisebb szám: {0}", FindAdventCoin("00000"));
-        }
+        public string Task1()=>
+             String.Format("A legkisebb szám: {0}", FindAdventCoin("00000"));
+        
 
         /// <summary>
         /// Melyik a legkisebb szám amit a kulcs mellé kell rakni, ha a hash első 6 karaktere 0
         /// </summary>
         /// <returns></returns>
-        public string Task2()
-        {
-            return String.Format("A legkisebb szám: {0}", FindAdventCoin("000000"));
+        public string Task2()=>
+             String.Format("A legkisebb szám: {0}", FindAdventCoin("000000"));
 
-        }
+        
         #endregion
     }
 }

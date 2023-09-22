@@ -9,6 +9,10 @@ namespace AdventOfCode2015.Days
 {
     public class Day2
     {
+
+        public Day2()=>
+            ReadingFile();
+       
         #region variables
 
         private const string Day2Task1 = "Az manóknak elfogyott a csomagolópapír, és szükségük van több rendelésre. Van egy lista, amely tartalmazza az ajándékok méreteit (hosszúság l, szélesség w és magasság h), és csak annyit akarnak rendelni, amennyire szükségük van.\r\n\r\nSzerencsére minden ajándék egy doboz (egy tökéletes derékszögű henger alakú), ami megkönnyíti az ajándékhoz szükséges csomagolópapír kiszámítását: találd meg a doboz felületét, ami 2lw + 2wh + 2hl. Az manóknak továbbá szükségük van egy kis plusz papírra minden ajándékhoz: a legkisebb oldal területére.\r\n\r\nPéldául:\r\n\r\nEgy olyan ajándék, amelynek a méretei 2x3x4, szükségessé teszik 26 + 212 + 28 = 52 négyzetlábnyi csomagolópapírt, plusz 6 négyzetlábnyi tartalékot, összesen 58 négyzetlábnyi csomagolópapírt.\r\nEgy olyan ajándék, amelynek a méretei 1x1x10, szükségessé teszik 21 + 210 + 210 = 42 négyzetlábnyi csomagolópapírt, plusz 1 négyzetlábnyi tartalékot, összesen 43 négyzetlábnyi csomagolópapírt.\r\nAz összes szám az manók listájában lábokban van kifejezve. Mennyi összesen csomagolópapír négyzetlábnyi szükséges nekik rendelniük?";
@@ -87,7 +91,6 @@ namespace AdventOfCode2015.Days
         /// <returns></returns>
         public string Task1()
         {
-            ReadingFile();
             wrappingSizes.ForEach(wrappingSize => { squareFeetOfWrappingPaper += giftSurface(wrappingSize) + areaOfTheSmallestSize(wrappingSize.ToList()); });
             return String.Format("A manóknak  {0} négyzetméternyi csomagolópapír kellene...",squareFeetOfWrappingPaper);
         }
@@ -98,7 +101,6 @@ namespace AdventOfCode2015.Days
         /// <returns></returns>
         public string Task2()
         {
-            ReadingFile();
             wrappingSizes.ForEach(wrappingSize => { feetOfRibbon += volumeOfGift(wrappingSize) + perimeterOfSide(wrappingSize.ToList()); });
             return String.Format("A manóknak a sok csomagoló cucc mellé még {0} láb szalag is kell",feetOfRibbon);
 
