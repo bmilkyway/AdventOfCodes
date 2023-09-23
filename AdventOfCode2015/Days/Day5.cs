@@ -48,6 +48,14 @@ namespace AdventOfCode2015.Days
                 return threeVowels && duplicate && !reserved;
             });
 
+        private int findAllNicerString() => strings.Count(line =>
+        {
+            var appersTwice = Enumerable.Range(0, line.Length - 1).Any(i => line.IndexOf(line.Substring(i, 2), i + 2) > 0);
+            var repeats = Enumerable.Range(0, line.Length - 2).Any(i => line[i] == line[i + 2]);
+            if(appersTwice&&repeats) Console.WriteLine(line);
+            return appersTwice &&repeats;
+        });
+
 
         #endregion
 
@@ -60,19 +68,17 @@ namespace AdventOfCode2015.Days
         /// Megadja, hogy hány szöveg felel meg a mintának
         /// </summary>
         /// <returns></returns>
-        public string Task1()
-        {
-            return String.Format("{0} szép szöveg van a bevitelben", findAllNiceString());
-        }
+        public string Task1()=>
+            String.Format("{0} szép szöveg van a bevitelben", findAllNiceString());
+
 
         /// <summary>
         /// Megadja, hogy hány szöveg felel meg a mintának
         /// </summary>
         /// <returns></returns>
-        public string Task2()
-        {
-            return String.Format("{0} szép szöveg van a bevitelben");
-        }
+        public string Task2()=> 
+            String.Format("{0} szép szöveg van a bevitelben", findAllNicerString());
+
         #endregion
 
     }
