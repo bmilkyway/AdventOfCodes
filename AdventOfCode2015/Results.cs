@@ -39,6 +39,25 @@ namespace AdventOfCode2015
         public string Day6Part1() => new Day6().Task1();
 
         public string Day6Part2() => new Day6().Task2();
-        #endregion 
+        #endregion
+
+        #region Day7
+        public string Day7Part1()=>new Day7().Task1();
+        public string Day7Part2() => new Day7().Task2();
+
+        #endregion
+
+
+        #region Day8
+        public string Day8Part1() => new Day8().Task1();
+        public string Day8Part2() => new Day8().Task2();
+
+        #endregion
+
+        #region Day9
+        public string Day9Part1() => new Day9().Task1();
+        public string Day9Part2() => new Day9().Task2();
+
+        #endregion
     }
 }

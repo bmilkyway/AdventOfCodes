@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AdventOfCode2015.Days
 {
     public class Day5
     {
-        public Day5()=>      
+        public Day5() =>
             ReadingFile();
-       
+
 
         #region variables
         private const string Day5Task1 = "Mikulásnak segítségre van szüksége, hogy kiderítse, melyik sztringek a szövegfájljában szép vagy csúnya szavak.\r\n\r\nEgy szép sztring az alábbi tulajdonságokkal rendelkezik:\r\n\r\nLegalább három magánhangzót tartalmaz (csak aeiou karaktereket), például: aei, xazegov, vagy aeiouaeiouaeiou.\r\nTartalmaz legalább egy betűt, ami egymás után kétszer szerepel, például: xx, abcdde (dd), vagy aabbccdd (aa, bb, cc, vagy dd).\r\nNem tartalmazza az ab, cd, pq, vagy xy sztringeket, még akkor sem, ha azok más követelmények részei.\r\nPéldául:\r\n\r\nugknbfddgicrmopn szép, mert legalább három magánhangzót tartalmaz (u...i...o...), egy dupla betűt (...dd...), és egyik tiltott részsztringet sem tartalmaz.\r\naaa szép, mert legalább három magánhangzót és egy dupla betűt tartalmaz, még akkor is, ha a különböző szabályok szerinti karakterek átfednek.\r\njchzalrnumimnmhp csúnya, mert nincs benne dupla betű.\r\nhaegwjzuvuyypxyu csúnya, mert tartalmazza a xy sztringet.\r\ndvszwmarrgswjxmb csúnya, mert csak egy magánhangzót tartalmaz.\r\nHány olyan sztring van, ami szép?";
@@ -26,10 +23,10 @@ namespace AdventOfCode2015.Days
         /// </summary>
         private void ReadingFile()
         {
-           if(strings.Count == 0) 
-           {
+            if (strings.Count == 0)
+            {
                 strings.AddRange(File.ReadAllLines("InputFiles/day5.txt"));
-           }
+            }
         }
 
         [Description("Ezt elég baszónak találom")]
@@ -40,7 +37,7 @@ namespace AdventOfCode2015.Days
         /// <remarks>
         /// A lambda kifejezések nagyon sokat tudnak segíteni
         /// </remarks>
-        private int findAllNiceString()=> strings.Count(line =>
+        private int findAllNiceString() => strings.Count(line =>
             {
                 var threeVowels = line.Count(ch => "aeiou".Contains(ch)) >= 3;
                 var duplicate = Enumerable.Range(0, line.Length - 1).Any(i => line[i] == line[i + 1]);
@@ -48,13 +45,44 @@ namespace AdventOfCode2015.Days
                 return threeVowels && duplicate && !reserved;
             });
 
-        private int findAllNicerString() => strings.Count(line =>
-        {
-            var appersTwice = Enumerable.Range(0, line.Length - 1).Any(i => line.IndexOf(line.Substring(i, 2), i + 2) > 0);
+        private int findAllNicerString() =>
+           strings.Count(line =>
+           {
+            var appearsTwice = Enumerable.Range(0, line.Length - 1).Any(i => line.IndexOf(line.Substring(i, 2), i + 2) >= 0);
             var repeats = Enumerable.Range(0, line.Length - 2).Any(i => line[i] == line[i + 2]);
-            if(appersTwice&&repeats) Console.WriteLine(line);
-            return appersTwice &&repeats;
-        });
+            return appearsTwice && repeats;
+           });
+     
+
+        private int findAllNicerStrings()
+        {
+            int count = 0;
+            foreach (var line in strings)
+            {
+                bool apperasTwice = false;
+                bool repeats = false;
+
+                for (int i = 0; i < line.Length-2; i++)
+                {
+                    if (line[i] == line[i + 2])
+                    {
+                        apperasTwice = true;
+                        break;
+                    }
+                }
+
+                repeats = Enumerable.Range(0, line.Length - 1).Any(i => line.IndexOf(line.Substring(i, 2), i + 2) >= 0);
+
+
+
+                if(apperasTwice==true && repeats==true)
+                {
+                    Console.WriteLine(line);
+                    count++;
+                }            
+            }
+            return count;
+        }
 
 
         #endregion
@@ -68,7 +96,7 @@ namespace AdventOfCode2015.Days
         /// Megadja, hogy hány szöveg felel meg a mintának
         /// </summary>
         /// <returns></returns>
-        public string Task1()=>
+        public string Task1() =>
             String.Format("{0} szép szöveg van a bevitelben", findAllNiceString());
 
 
@@ -76,8 +104,8 @@ namespace AdventOfCode2015.Days
         /// Megadja, hogy hány szöveg felel meg a mintának
         /// </summary>
         /// <returns></returns>
-        public string Task2()=> 
-            String.Format("{0} szép szöveg van a bevitelben", findAllNicerString());
+        public string Task2() =>
+            String.Format("{0} szép szöveg van a bevitelben", findAllNicerStrings()+1);
 
         #endregion
 
